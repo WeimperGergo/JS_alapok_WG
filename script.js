@@ -6,6 +6,7 @@ window.addEventListener("load", function () {
     elemekFormazasa1();
     esemenyKezeles1();
     esemenyKezeles2();
+    sotetmod();
 });
 
 function elemekElerese1() {
@@ -52,7 +53,7 @@ function esemenyKezeles1() {
 
 function esemenyKezeles2() {
     const ELEM = $(".feladat");
-    let gomb = `<button>Hozzáad</button>`;
+    let gomb = `<button style=\'display: block; margin: auto; margin-bottom: 10px;\'>Hozzáad</button>`;
     ELEM.html(gomb);
     const gombELEM = $(".feladat button");
     gombELEM.on("click", function(){
@@ -68,6 +69,14 @@ function esemenyKezeles4() {
     const ELEM = $(".lista");
 }
 
+function sotetmod() {
+    const ELEM = $("body");
+    const GOMB = $("#sotetKapcsolo");
+    GOMB.on("click", function(){
+        ELEM.toggleClass("sotet");
+    });
+    
+}
 
 function randomGen(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
