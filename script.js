@@ -6,6 +6,7 @@ window.addEventListener("load", function () {
     elemekFormazasa1();
     esemenyKezeles1();
     esemenyKezeles2();
+    esemenyKezeles3();
     sotetmod();
 });
 
@@ -15,17 +16,20 @@ function elemekElerese1() {
     let tartalom = ELEM.innerHTML;
     console.log(tartalom);
 }
+
 function elemekElerese2() {
     /*Ide jön az 2.  feladat */
     let tartalom = `<p>Jó reggelt!</p>`;
     const ELEM = document.getElementById("ide");
     ELEM.innerHTML = tartalom;
 }
+
 function elemekElerese3() {
     /*Ide jön az 3. feladat */
     const ELEM = document.getElementsByClassName("ide") [0];
     ELEM.innerHTML = `<p>Jó reggelt!</p>`;
 }
+
 function elemekElerese4() {
     const ELEM = document.querySelectorAll(".lista") [0];
     let szoveg = "<ul>";
@@ -36,6 +40,9 @@ function elemekElerese4() {
     szoveg += "</ul>";
     ELEM.innerHTML = szoveg;
 }
+
+// Innen JQuery-vel íródott
+
 function elemekFormazasa1() {
     const ELEM = $(".lista");
     //console.log(ELEM)
@@ -61,21 +68,29 @@ function esemenyKezeles2() {
     });
 }
 
-function esemenyKezeles3() {
-    const ELEM = $(".lista");
+function esemenyKezeles3() { // Nem működik
+    const ELEM = $("section .tarolo div");
+    let elemTARTALOM = [];
+    const EREDMENY = $(".eredmeny");
+    for (let i = 0; i < ELEM.length; i++) {
+        elemTARTALOM[i] = ELEM.eq(i).html();
+        ELEM.on("click", function(){
+            EREDMENY.append(elemTARTALOM[i]);
+        });
+    }
 }
 
 function esemenyKezeles4() {
-    const ELEM = $(".lista");
+    
 }
 
 function sotetmod() {
     const ELEM = $("body");
     const GOMB = $("#sotetKapcsolo");
+    ELEM.toggleClass("sotet");
     GOMB.on("click", function(){
         ELEM.toggleClass("sotet");
     });
-    
 }
 
 function randomGen(min, max) {
