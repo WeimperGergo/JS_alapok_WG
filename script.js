@@ -3,6 +3,9 @@ window.addEventListener("load", function () {
     elemekElerese2();
     elemekElerese3();
     elemekElerese4();
+    elemekFormazasa1();
+    esemenyKezeles1();
+    esemenyKezeles2();
 });
 
 function elemekElerese1() {
@@ -33,11 +36,36 @@ function elemekElerese4() {
     ELEM.innerHTML = szoveg;
 }
 function elemekFormazasa1() {
-    const ELEM = document.querySelectorAll(".lista") [0];
-    ELEM.classList.add("formazott");
+    const ELEM = $(".lista");
+    //console.log(ELEM)
+    ELEM.addClass("formazott");
 }
-function elemekFormazasa2() {
-    
+
+function esemenyKezeles1() {
+    const ELEM = $(".lista");
+    const kattDIV = $(".kattintasutan"); 
+    ELEM.on("click", function(){
+        kattDIV.html(ELEM.html());
+    });
+
+}
+
+function esemenyKezeles2() {
+    const ELEM = $(".feladat");
+    let gomb = `<button>Hozzáad</button>`;
+    ELEM.html(gomb);
+    const gombELEM = $(".feladat button");
+    gombELEM.on("click", function(){
+        ELEM.append("<img src=\'https://scontent.fbud10-1.fna.fbcdn.net/v/t39.30808-6/305039025_507761254687514_4156001838985411102_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=SYIkQ2R_YiIAX-23FtL&_nc_ht=scontent.fbud10-1.fna&oh=00_AfAPKqzn8ytWW7rw-kdr0pnM3WcDH0H_t19yHKEvAZKVdw&oe=6601EAE1\' alt=\'Retard cica\' style=\'width: 100%; height: 200px;\'>");
+    });
+}
+
+function esemenyKezeles3() {
+    const ELEM = $(".lista");
+}
+
+function esemenyKezeles4() {
+    const ELEM = $(".lista");
 }
 
 
